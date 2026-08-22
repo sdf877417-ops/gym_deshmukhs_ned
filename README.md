@@ -63,3 +63,4 @@ Change the password in `.env` before real deployment.
 
 The backend owns all member/payment data. The frontend never stores member data in localStorage.
 The JWT is stored in localStorage for this simple starter. For higher-security production deployment, use an HttpOnly secure cookie, rate limiting, audit logging, HTTPS and backups.
+"# gym-deshmukh-MERN" 
