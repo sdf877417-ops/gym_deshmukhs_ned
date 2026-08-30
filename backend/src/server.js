@@ -33,7 +33,7 @@ app.use("/api/payments", paymentRoutes);
 
 // demo checking 
 app.get('/',(req,res)=>{
-  res.send("welcome")
+  res.send("welcome at deshmukh_gym_nanded backend at render")
 })
 
 
