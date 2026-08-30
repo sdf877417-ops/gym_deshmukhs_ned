@@ -11,17 +11,65 @@ import MemberDetails from "./pages/admin/MemberDetails.jsx";
 import Fees from "./pages/admin/Fees.jsx";
 import Expiring from "./pages/admin/Expiring.jsx";
 
-const Admin = ({ children }) => <Protected><AdminLayout>{children}</AdminLayout></Protected>;
+const Admin = ({ children }) => (
+  <Protected>
+    <AdminLayout>{children}</AdminLayout>
+  </Protected>
+);
 
-export default function App(){
- return <Routes>
-   <Route path="/" element={<Home/>}/>
-   <Route path="/admin/login" element={<Login/>}/>
-   <Route path="/admin/dashboard" element={<Admin><Dashboard/></Admin>}/>
-   <Route path="/admin/members" element={<Admin><Members/></Admin>}/>
-   <Route path="/admin/add-member" element={<Admin><AddMember/></Admin>}/>
-   <Route path="/admin/members/:id" element={<Admin><MemberDetails/></Admin>}/>
-   <Route path="/admin/fees" element={<Admin><Fees/></Admin>}/>
-   <Route path="/admin/expiring" element={<Admin><Expiring/></Admin>}/>
- </Routes>;
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/admin/login" element={<Login />} />
+      <Route
+        path="/admin/dashboard"
+        element={
+          <Admin>
+            {/* <Dashboard /> */}
+          </Admin>
+        }
+      />
+      <Route
+        path="/admin/members"
+        element={
+          <Admin>
+            <Members />
+          </Admin>
+        }
+      />
+      <Route
+        path="/admin/add-member"
+        element={
+          <Admin>
+            <AddMember />
+          </Admin>
+        }
+      />
+      <Route
+        path="/admin/members/:id"
+        element={
+          <Admin>
+            <MemberDetails />
+          </Admin>
+        }
+      />
+      <Route
+        path="/admin/fees"
+        element={
+          <Admin>
+            <Fees />
+          </Admin>
+        }
+      />
+      <Route
+        path="/admin/expiring"
+        element={
+          <Admin>
+            <Expiring />
+          </Admin>
+        }
+      />
+    </Routes>
+  );
 }

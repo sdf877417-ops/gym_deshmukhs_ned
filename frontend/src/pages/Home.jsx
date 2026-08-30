@@ -72,7 +72,9 @@ export default function Home() {
       <a className="btn primary" href={`tel:${gym.phone}`}>Call Gym</a>
     </Section>
 
-    <footer className="footer">© 2026 Deshmukh Gym & Cardio · <a href="/admin/login">Admin Login</a></footer>
+    <footer className="footer">© 2026 Deshmukh Gym & Cardio · 
+      {/* <a href="/admin/login">Admin Login</a> */}
+    </footer>
     <a className="mobile-call" href={`tel:${gym.phone}`}>📞 Call Gym</a>
   </>;
 }
