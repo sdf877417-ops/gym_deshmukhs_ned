@@ -1,5 +1,5 @@
 export const gym = {
-  name: "Deshmukh Gym & Cardio",
+  name: "Deshmukhs Gym & Cardio",
   address: "Chetan Nagar, Nanded, Maharashtra, India",
   phone: "YOUR_PHONE_NUMBER"
 };
