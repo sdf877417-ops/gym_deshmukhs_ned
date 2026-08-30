@@ -73,7 +73,7 @@ export default function Home() {
     </Section>
 
     <footer className="footer">© 2026 Deshmukh Gym & Cardio · 
-      {/* <a href="/admin/login">Admin Login</a> */}
+      <a href="/admin/login">Admin Login</a>
     </footer>
     <a className="mobile-call" href={`tel:${gym.phone}`}>📞 Call Gym</a>
   </>;
