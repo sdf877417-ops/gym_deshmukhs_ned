@@ -24,20 +24,20 @@ app.use(
 );
 app.use(express.json());
 
-app.get("/api/health", (_req, res) => {
+app.get("/health", (_req, res) => {
   res.json({ ok: true, message: "Deshmukh Gym API is running" });
 });
 
 
-app.get("/api/getdata",async (_req, res) => {
+app.get("/getdata",async (_req, res) => {
   const data = await Member.find()
   console.log(`value in data :`, data)
   res.json({ ok: true, message: "Deshmukh Gym API is running", data:data });
 });
 
-app.use("/api/auth", authRoutes);
-app.use("/api/members", memberRoutes);
-app.use("/api/payments", paymentRoutes);
+app.use("/auth", authRoutes);
+app.use("/members", memberRoutes);
+app.use("/payments", paymentRoutes);
 
 // demo checking 
 app.get('/',(req,res)=>{
