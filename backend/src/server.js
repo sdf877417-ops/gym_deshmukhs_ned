@@ -15,11 +15,17 @@ const PORT = process.env.PORT || 5000;
 // console.log(`MONGO_URI is :`, process.env.MONGO_URI)
 
 // connecting dataabse
-connectDB(process.env.MONGO_URI)
+connectDB(process.env.MONGO_URI);
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://gym-deshmukhs-ned.vercel.app",
+];
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "https://gym-deshmukhs-ned.vercel.app/",
+    origin: allowedOrigins,
+    credentials: true,
   }),
 );
 app.use(express.json());
@@ -28,22 +34,20 @@ app.get("/health", (_req, res) => {
   res.json({ ok: true, message: "Deshmukh Gym API is running" });
 });
 
-
-app.get("/getdata",async (_req, res) => {
-  const data = await Member.find()
-  console.log(`value in data :`, data)
-  res.json({ ok: true, message: "Deshmukh Gym API is running", data:data });
+app.get("/getdata", async (_req, res) => {
+  const data = await Member.find();
+  console.log(`value in data :`, data);
+  res.json({ ok: true, message: "Deshmukh Gym API is running", data: data });
 });
 
 app.use("/auth", authRoutes);
 app.use("/members", memberRoutes);
 app.use("/payments", paymentRoutes);
 
-// demo checking 
-app.get('/',(req,res)=>{
-  res.send("welcome at deshmukh_gym_nanded backend at render")
-})
-
+// demo checking
+app.get("/", (req, res) => {
+  res.send("welcome at deshmukh_gym_nanded backend at render");
+});
 
 app.use((err, _req, res, _next) => {
   console.error(err);
@@ -51,7 +55,6 @@ app.use((err, _req, res, _next) => {
     message: err.message || "Server error",
   });
 });
-
 
 app.listen(PORT, () => {
   console.log(`server is listening on PORT : ${PORT}`);

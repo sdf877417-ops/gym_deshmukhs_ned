@@ -4,6 +4,7 @@ import Payment from "../models/Payment.js";
 import { requireAdmin } from "../middleware/auth.js";
 
 const router = Router();
+
 router.use(requireAdmin);
 
 function status(endDate) {
