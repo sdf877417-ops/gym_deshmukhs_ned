@@ -7,6 +7,7 @@ import authRoutes from "./routes/auth.js";
 import memberRoutes from "./routes/members.js";
 import paymentRoutes from "./routes/payments.js";
 import connectDB from "./config/connectDB.js";
+import Member from "./models/Member.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -25,6 +26,13 @@ app.use(express.json());
 
 app.get("/api/health", (_req, res) => {
   res.json({ ok: true, message: "Deshmukh Gym API is running" });
+});
+
+
+app.get("/api/getdata",async (_req, res) => {
+  const data = await Member.find()
+  console.log(`value in data :`, data)
+  res.json({ ok: true, message: "Deshmukh Gym API is running", data:data });
 });
 
 app.use("/api/auth", authRoutes);
