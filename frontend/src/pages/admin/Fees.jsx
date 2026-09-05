@@ -1,5 +1,7 @@
 import React,{useEffect,useState}from"react";
 import api from"../../services/api.js";
+
+
 export default function Fees(){
  const[p,setP]=useState([]);
  useEffect(()=>{api.get("/payments").then(r=>setP(r.data))},[]);

@@ -1,7 +1,7 @@
 import api from "./api";
 
 export async function login(email, password) {
-  const { data } = await api.post("api/auth/login", { email, password });
+  const { data } = await api.post("/auth/login", { email, password });
   localStorage.setItem("deshmukh_admin_token", data.token);
   return data;
 }
